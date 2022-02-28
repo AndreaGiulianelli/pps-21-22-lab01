@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class SimpleBankAccountWithAtmSpecificTest {
     public static final int ATM_FEE = 1;
@@ -27,5 +28,11 @@ public class SimpleBankAccountWithAtmSpecificTest {
         this.bankAccount.deposit(this.accountHolder.getId(), 100);
         this.bankAccount.withdrawWithAtm(accountHolder.getId(), 70);
         assertEquals(30 - ATM_FEE, this.bankAccount.getBalance());
+    }
+
+    @Test
+    void testWithdrawMoreThanDeposited() {
+        this.bankAccount.deposit(this.accountHolder.getId(), 100);
+        assertThrows(IllegalStateException.class, () -> this.bankAccount.withdraw(this.accountHolder.getId(), 101));
     }
 }

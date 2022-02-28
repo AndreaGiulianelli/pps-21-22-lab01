@@ -16,4 +16,10 @@ public class SimpleBankAccountWithAtm extends AbstractSimpleBankAccount implemen
             this.balance += amount - ATM_FEE;
         }
     }
+
+    @Override
+    public void withdrawWithAtm(final int userID, final double amount) {
+        double amountWithFee = amount + ATM_FEE;
+        this.withdraw(userID, amountWithFee);
+    }
 }

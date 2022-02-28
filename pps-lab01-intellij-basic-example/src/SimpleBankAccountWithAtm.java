@@ -12,9 +12,8 @@ public class SimpleBankAccountWithAtm extends AbstractSimpleBankAccount implemen
 
     @Override
     public void depositWithAtm(final int userID, final double amount) {
-        if (this.checkUser(userID)) {
-            this.balance += amount - ATM_FEE;
-        }
+        double amountWithFee = amount - ATM_FEE;
+        this.deposit(userID, amountWithFee);
     }
 
     @Override

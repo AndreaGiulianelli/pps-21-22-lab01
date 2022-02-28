@@ -21,4 +21,11 @@ public class SimpleBankAccountWithAtmSpecificTest {
         this.bankAccount.depositWithAtm(this.accountHolder.getId(), 100);
         assertEquals(100 - ATM_FEE, bankAccount.getBalance());
     }
+
+    @Test
+    void testWithdrawWithAtm() {
+        this.bankAccount.deposit(this.accountHolder.getId(), 100);
+        this.bankAccount.withdraw(accountHolder.getId(), 70);
+        assertEquals(30 - ATM_FEE, this.bankAccount.getBalance());
+    }
 }

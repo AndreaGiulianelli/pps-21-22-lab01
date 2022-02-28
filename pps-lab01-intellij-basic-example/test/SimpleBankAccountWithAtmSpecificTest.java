@@ -35,4 +35,13 @@ public class SimpleBankAccountWithAtmSpecificTest {
         this.bankAccount.deposit(this.accountHolder.getId(), 100);
         assertThrows(IllegalStateException.class, () -> this.bankAccount.withdraw(this.accountHolder.getId(), 101));
     }
+
+    @Test
+    void testWithdrawMoreThanDepositedGoldAccount() {
+        this.bankAccount.setGoldAccount(true);
+        this.bankAccount.deposit(this.accountHolder.getId(), 100);
+        this.bankAccount.withdraw(this.accountHolder.getId(), 101);
+        assertEquals(-1, this.bankAccount.getBalance());
+    }
+
 }

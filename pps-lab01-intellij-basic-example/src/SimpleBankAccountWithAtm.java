@@ -1,6 +1,5 @@
 import lab01.example.model.AbstractSimpleBankAccount;
 import lab01.example.model.AccountHolder;
-import lab01.example.model.BankAccount;
 import lab01.example.model.BankAccountWithAtm;
 
 public class SimpleBankAccountWithAtm extends AbstractSimpleBankAccount implements BankAccountWithAtm {

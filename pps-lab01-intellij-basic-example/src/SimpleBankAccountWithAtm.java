@@ -28,12 +28,6 @@ public class SimpleBankAccountWithAtm extends AbstractSimpleBankAccount implemen
     }
 
     @Override
-    public boolean isGoldAccount() {
-        return this.goldAccount;
-    }
-
-
-    @Override
     protected boolean handleBalanceNotSufficient() {
         if (this.goldAccount) {
             return true;

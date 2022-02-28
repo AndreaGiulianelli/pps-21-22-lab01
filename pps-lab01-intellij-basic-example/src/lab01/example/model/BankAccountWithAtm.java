@@ -25,9 +25,4 @@ public interface BankAccountWithAtm extends BankAccount{
      * @return
      */
     void setGoldAccount(boolean status);
-
-    /**
-     * @return true if it's a gold account, false instead.
-     */
-    boolean isGoldAccount();
 }

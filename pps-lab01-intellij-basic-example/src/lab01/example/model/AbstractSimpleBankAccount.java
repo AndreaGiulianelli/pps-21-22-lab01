@@ -33,12 +33,11 @@ public abstract class AbstractSimpleBankAccount implements BankAccount {
         }
     }
 
-    protected abstract void handleBalanceNotSufficient();
+    protected abstract boolean handleBalanceNotSufficient();
 
     protected final boolean isWithdrawAllowed(final double amount) {
         if (!(this.balance >= amount)) {
-            this.handleBalanceNotSufficient();
-            return false;
+            return this.handleBalanceNotSufficient();
         }
         return true;
     }

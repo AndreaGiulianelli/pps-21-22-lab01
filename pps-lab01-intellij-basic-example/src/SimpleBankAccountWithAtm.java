@@ -4,6 +4,7 @@ import lab01.example.model.BankAccountWithAtm;
 
 public class SimpleBankAccountWithAtm extends AbstractSimpleBankAccount implements BankAccountWithAtm {
     public static final int ATM_FEE = 1;
+    private boolean goldAccount = false;
 
     public SimpleBankAccountWithAtm(final AccountHolder holder, final double balance) {
         super(holder, balance);
@@ -22,7 +23,21 @@ public class SimpleBankAccountWithAtm extends AbstractSimpleBankAccount implemen
     }
 
     @Override
-    protected void handleBalanceNotSufficient() {
+    public void setGoldAccount(boolean status) {
+        this.goldAccount = status;
+    }
+
+    @Override
+    public boolean isGoldAccount() {
+        return this.goldAccount;
+    }
+
+
+    @Override
+    protected boolean handleBalanceNotSufficient() {
+        if (this.goldAccount) {
+            return true;
+        }
         throw new IllegalStateException("Balance not sufficient");
     }
 }

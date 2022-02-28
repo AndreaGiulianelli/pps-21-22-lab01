@@ -12,6 +12,6 @@ public class SimpleBankAccount extends AbstractSimpleBankAccount {
     }
 
     @Override
-    protected void handleBalanceNotSufficient() {}
+    protected boolean handleBalanceNotSufficient() { return true; }
 
 }

@@ -21,4 +21,9 @@ public class SimpleBankAccountWithAtm extends AbstractSimpleBankAccount implemen
         double amountWithFee = amount + ATM_FEE;
         this.withdraw(userID, amountWithFee);
     }
+
+    @Override
+    protected void handleBalanceNotSufficient() {
+        throw new IllegalStateException("Balance not sufficient");
+    }
 }

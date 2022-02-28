@@ -11,4 +11,7 @@ public class SimpleBankAccount extends AbstractSimpleBankAccount {
         super(holder, balance);
     }
 
+    @Override
+    protected void handleBalanceNotSufficient() {}
+
 }

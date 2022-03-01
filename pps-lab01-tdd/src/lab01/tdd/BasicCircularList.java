@@ -1,5 +1,6 @@
 package lab01.tdd;
 
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -40,7 +41,11 @@ public class BasicCircularList implements CircularList{
 
     @Override
     public Optional<Integer> previous() {
-        return Optional.empty();
+        Optional<Integer> current = Optional.empty();
+        if (!this.isEmpty()) {
+            current = Optional.of(this.elements.get(this.currentIndex));
+        }
+        return current;
     }
 
     @Override

@@ -50,7 +50,7 @@ public class BasicCircularList implements CircularList{
 
     @Override
     public void reset() {
-
+        this.currentIndex = 0;
     }
 
     @Override

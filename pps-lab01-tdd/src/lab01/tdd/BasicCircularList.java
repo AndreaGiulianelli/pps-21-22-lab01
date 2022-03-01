@@ -67,7 +67,7 @@ public class BasicCircularList implements CircularList{
     }
 
     private void decrementCurrentIndex() {
-        if(this.currentIndex == 0 || this.currentIndex == -1) {
+        if(this.currentIndex == 0) {
             this.currentIndex = this.elements.size() - 1;
         } else {
             this.currentIndex--;

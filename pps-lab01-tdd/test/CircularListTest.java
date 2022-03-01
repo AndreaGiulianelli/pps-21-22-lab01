@@ -48,16 +48,14 @@ public class CircularListTest {
 
     @Test
     void testNextElement() {
-        this.circularList.add(10);
-        this.circularList.add(20);
+        this.insertElements(10, 20);
         this.circularList.next();
         assertEquals(20, this.circularList.next().get());
     }
 
     @Test
     void nextTestCircularity() {
-        this.circularList.add(10);
-        this.circularList.add(20);
+        this.insertElements(10, 20);
         this.circularList.next();
         this.circularList.next();
         assertEquals(10, this.circularList.next().get());
@@ -71,34 +69,39 @@ public class CircularListTest {
 
     @Test
     void testPreviousElement() {
-        this.circularList.add(10);
-        this.circularList.add(20);
+        this.insertElements(10, 20);
         assertEquals(20, this.circularList.previous().get());
     }
 
     @Test
     void testReset() {
-        this.circularList.add(10);
-        this.circularList.add(20);
+        this.insertElements(10, 20);
         assertEquals(20, this.circularList.previous().get());
     }
 
     @Test
     void testGeneralBehaviour() {
-        this.circularList.add(10);
-        this.circularList.add(20);
+        this.insertElements(10, 20);
         this.circularList.next();
         assertEquals(10, this.circularList.previous().get());
     }
 
+    /**
+     * Behaviour inspired to ListIterator where the
+     * alternation of next and previous remains on the same element
+     */
     @Test
     void testResetCurrentIndex() {
-        this.circularList.add(10);
-        this.circularList.add(20);
-        this.circularList.add(30);
+        this.insertElements(10, 20, 30);
         this.circularList.next();
         this.circularList.next();
         this.circularList.reset();
         assertEquals(10, this.circularList.next().get());
+    }
+
+    private void insertElements(Integer... elements) {
+        for(int element : elements) {
+            this.circularList.add(element);
+        }
     }
 }

@@ -42,11 +42,7 @@ public class BasicCircularList implements CircularList{
     public Optional<Integer> previous() {
         Optional<Integer> current = Optional.empty();
         if (!this.isEmpty()) {
-            if(this.currentIndex == 0 || this.currentIndex == -1) {
-                this.currentIndex = this.elements.size() - 1;
-            } else {
-                this.currentIndex--;
-            }
+            this.decrementCurrentIndex();
             current = Optional.of(this.elements.get(this.currentIndex));
         }
         return current;
@@ -67,6 +63,14 @@ public class BasicCircularList implements CircularList{
             this.currentIndex = 0;
         } else {
             this.currentIndex++;
+        }
+    }
+
+    private void decrementCurrentIndex() {
+        if(this.currentIndex == 0 || this.currentIndex == -1) {
+            this.currentIndex = this.elements.size() - 1;
+        } else {
+            this.currentIndex--;
         }
     }
 }

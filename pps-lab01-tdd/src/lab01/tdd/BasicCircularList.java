@@ -6,9 +6,11 @@ import java.util.Optional;
 
 public class BasicCircularList implements CircularList{
     private final List<Integer> elements;
+    private int currentIndex;
 
     public BasicCircularList() {
         this.elements = new ArrayList<>();
+        this.currentIndex = 0;
     }
 
     @Override
@@ -28,7 +30,13 @@ public class BasicCircularList implements CircularList{
 
     @Override
     public Optional<Integer> next() {
-        return Optional.empty();
+        Optional<Integer> current = Optional.empty();
+        if (!this.isEmpty()) {
+            current = Optional.of(this.elements.get(this.currentIndex));
+            this.currentIndex++;
+        }
+        return current;
+
     }
 
     @Override

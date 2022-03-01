@@ -39,4 +39,10 @@ public class CircularListTest {
     void previousInitiallyEmpty() {
         assertEquals(Optional.empty(), this.circularList.previous());
     }
+
+    @Test
+    void nextTestFirstElement() {
+        this.circularList.add(10);
+        assertEquals(10, this.circularList.next().get());
+    }
 }

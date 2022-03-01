@@ -75,4 +75,30 @@ public class CircularListTest {
         this.circularList.add(20);
         assertEquals(20, this.circularList.previous().get());
     }
+
+    @Test
+    void testReset() {
+        this.circularList.add(10);
+        this.circularList.add(20);
+        assertEquals(20, this.circularList.previous().get());
+    }
+
+    @Test
+    void testGeneralBehaviour() {
+        this.circularList.add(10);
+        this.circularList.add(20);
+        this.circularList.next();
+        assertEquals(10, this.circularList.previous().get());
+    }
+
+    @Test
+    void testResetCurrentIndex() {
+        this.circularList.add(10);
+        this.circularList.add(20);
+        this.circularList.add(30);
+        this.circularList.next();
+        this.circularList.next();
+        this.circularList.reset();
+        assertEquals(10, this.circularList.next().get());
+    }
 }

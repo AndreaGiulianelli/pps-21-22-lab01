@@ -10,7 +10,7 @@ public class BasicCircularList implements CircularList{
 
     public BasicCircularList() {
         this.elements = new ArrayList<>();
-        this.currentIndex = -1;
+        this.currentIndex = 0;
     }
 
     @Override
@@ -32,8 +32,8 @@ public class BasicCircularList implements CircularList{
     public Optional<Integer> next() {
         Optional<Integer> current = Optional.empty();
         if (!this.isEmpty()) {
-            this.increaseCurrentIndex();
             current = Optional.of(this.elements.get(this.currentIndex));
+            this.increaseCurrentIndex();
         }
         return current;
     }

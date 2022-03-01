@@ -18,6 +18,12 @@ public class CircularListTest {
 
     @Test
     void isInitiallyEmpty() {
-        assertTrue(this.circularList.isEmpty());
+        assertTrue(this.circularList.isEmpty() && this.circularList.size() == 0);
+    }
+
+    @Test
+    void addElementIncreaseSize() {
+        this.circularList.add(10);
+        assertTrue(!this.circularList.isEmpty() && this.circularList.size() == 1);
     }
 }

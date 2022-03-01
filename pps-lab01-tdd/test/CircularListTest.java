@@ -41,7 +41,7 @@ public class CircularListTest {
     }
 
     @Test
-    void nextTestFirstElement() {
+    void nextTestOneElement() {
         this.circularList.add(10);
         assertEquals(10, this.circularList.next().get());
     }
@@ -61,5 +61,11 @@ public class CircularListTest {
         this.circularList.next();
         this.circularList.next();
         assertEquals(10, this.circularList.next().get());
+    }
+
+    @Test
+    void previousTestOneElement() {
+        this.circularList.add(10);
+        assertEquals(10, this.circularList.previous().get());
     }
 }

@@ -12,5 +12,5 @@ public class SimpleBankAccount extends AbstractSimpleBankAccount {
     }
 
     @Override
-    protected boolean handleBalanceNotSufficient() { return false; }
+    protected boolean isWithdrawAllowedBalanceNotSufficient() { return false; }
 }

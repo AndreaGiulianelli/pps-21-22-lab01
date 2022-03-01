@@ -1,13 +1,11 @@
 import lab01.example.model.AccountHolder;
-import lab01.example.model.BankAccount;
-import lab01.example.model.SimpleBankAccount;
+import lab01.example.model.SimpleBankAccountWithAtm;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * The test suite for testing the SimpleBankAccountWithAtm implementation
+ * The test suite for testing the lab01.example.model.SimpleBankAccountWithAtm implementation
  */
 class SimpleBankAccountWithAtmBasicTest extends AbstractBasicBankAccountTest{
     @Override

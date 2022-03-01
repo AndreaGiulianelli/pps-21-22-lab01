@@ -1,6 +1,4 @@
-import lab01.example.model.AbstractSimpleBankAccount;
-import lab01.example.model.AccountHolder;
-import lab01.example.model.BankAccountWithAtm;
+package lab01.example.model;
 
 public class SimpleBankAccountWithAtm extends AbstractSimpleBankAccount implements BankAccountWithAtm {
     public static final int ATM_FEE = 1;
@@ -28,7 +26,7 @@ public class SimpleBankAccountWithAtm extends AbstractSimpleBankAccount implemen
     }
 
     @Override
-    protected boolean handleBalanceNotSufficient() {
+    protected boolean isWithdrawAllowedBalanceNotSufficient() {
         if (this.goldAccount) {
             return true;
         }

@@ -33,10 +33,13 @@ public class BasicCircularList implements CircularList{
         Optional<Integer> current = Optional.empty();
         if (!this.isEmpty()) {
             current = Optional.of(this.elements.get(this.currentIndex));
-            this.currentIndex++;
+            if (this.currentIndex == this.elements.size() - 1) {
+                this.currentIndex = 0;
+            } else {
+                this.currentIndex++;
+            }
         }
         return current;
-
     }
 
     @Override

@@ -1,4 +1,6 @@
-package lab01.tdd;
+package lab01.tdd.model;
+
+import lab01.tdd.model.strategy.SelectStrategy;
 
 import java.util.Optional;
 

@@ -1,6 +1,4 @@
-package lab01.tdd;
-
-import lab01.tdd.SelectStrategy;
+package lab01.tdd.model.strategy;
 
 public class MultipleOfStrategy implements SelectStrategy {
     private final int divisor;

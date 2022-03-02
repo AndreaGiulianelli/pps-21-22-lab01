@@ -1,6 +1,8 @@
-import lab01.tdd.*;
+import lab01.tdd.model.BasicCircularList;
+import lab01.tdd.model.CircularList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import utils.CircularListTestUtils;
 
 import java.util.Optional;
 
@@ -47,14 +49,14 @@ public class CircularListTest {
 
     @Test
     void testNextElement() {
-        this.insertElements(10, 20);
+        CircularListTestUtils.insertElements(this.circularList, 10, 20);
         this.circularList.next();
         assertEquals(20, this.circularList.next().get());
     }
 
     @Test
     void nextTestCircularity() {
-        this.insertElements(10, 20);
+        CircularListTestUtils.insertElements(this.circularList,10, 20);
         this.circularList.next();
         this.circularList.next();
         assertEquals(10, this.circularList.next().get());
@@ -68,13 +70,13 @@ public class CircularListTest {
 
     @Test
     void testPreviousElement() {
-        this.insertElements(10, 20);
+        CircularListTestUtils.insertElements(this.circularList,10, 20);
         assertEquals(20, this.circularList.previous().get());
     }
 
     @Test
     void testReset() {
-        this.insertElements(10, 20);
+        CircularListTestUtils.insertElements(this.circularList,10, 20);
         assertEquals(20, this.circularList.previous().get());
     }
 
@@ -84,69 +86,17 @@ public class CircularListTest {
      */
     @Test
     void testGeneralBehaviour() {
-        this.insertElements(10, 20);
+        CircularListTestUtils.insertElements(this.circularList,10, 20);
         this.circularList.next();
         assertEquals(10, this.circularList.previous().get());
     }
 
     @Test
     void testResetCurrentIndex() {
-        this.insertElements(10, 20, 30);
+        CircularListTestUtils.insertElements(this.circularList,10, 20, 30);
         this.circularList.next();
         this.circularList.next();
         this.circularList.reset();
         assertEquals(10, this.circularList.next().get());
-    }
-
-    @Test
-    void testEvenStrategy() {
-        this.insertElements(1,2,3,4,5);
-        this.circularList.next();
-        this.circularList.next();
-        assertEquals(4, this.circularList.next(new EvenStrategy()).get());
-    }
-
-    @Test
-    void testMultipleOfStrategy() {
-        this.insertElements(1,6,7);
-        assertEquals(6, this.circularList.next(new MultipleOfStrategy(3)).get());
-    }
-
-    @Test
-    void testEqualsStrategy() {
-        this.insertElements(1,6,7);
-        assertEquals(6, this.circularList.next(new EqualsStrategy(6)).get());
-    }
-
-    @Test
-    void testEmptyEvenStrategy() {
-        this.insertElements(1,3,7);
-        assertEquals(Optional.empty(), this.circularList.next(new EvenStrategy()));
-    }
-
-    @Test
-    void testEmptyMultipleOfStrategy() {
-        this.insertElements(1,3,7);
-        assertEquals(Optional.empty(), this.circularList.next(new MultipleOfStrategy(2)));
-    }
-
-    @Test
-    void testEmptyEqualsStrategy() {
-        this.insertElements(1,3,7);
-        assertEquals(Optional.empty(), this.circularList.next(new EqualsStrategy(8)));
-    }
-
-    @Test
-    void testCircularityNextWithStrategy() {
-        this.insertElements(1,2,3,5);
-        this.circularList.next();
-        this.circularList.next();
-        assertEquals(2, this.circularList.next(new EvenStrategy()).get());
-    }
-
-    private void insertElements(final Integer... elements) {
-        for(int element : elements) {
-            this.circularList.add(element);
-        }
     }
 }

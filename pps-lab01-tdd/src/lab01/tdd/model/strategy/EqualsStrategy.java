@@ -1,4 +1,4 @@
-package lab01.tdd;
+package lab01.tdd.model.strategy;
 
 public class EqualsStrategy implements SelectStrategy {
     private final int number;

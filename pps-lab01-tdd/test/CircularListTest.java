@@ -99,6 +99,14 @@ public class CircularListTest {
         assertEquals(10, this.circularList.next().get());
     }
 
+    @Test
+    void testEvenStrategy() {
+        this.insertElements(1,2,3,4,5);
+        this.circularList.next();
+        this.circularList.next();
+        assertEquals(4, this.circularList.next(new EvenStrategy()));
+    }
+
     private void insertElements(final Integer... elements) {
         for(int element : elements) {
             this.circularList.add(element);

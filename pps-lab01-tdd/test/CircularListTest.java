@@ -118,6 +118,24 @@ public class CircularListTest {
         assertEquals(6, this.circularList.next(new EqualsStrategy(6)).get());
     }
 
+    @Test
+    void testEmptyEvenStrategy() {
+        this.insertElements(1,3,7);
+        assertEquals(Optional.empty(), this.circularList.next(new EvenStrategy()));
+    }
+
+    @Test
+    void testEmptyMultipleOfStrategy() {
+        this.insertElements(1,3,7);
+        assertEquals(Optional.empty(), this.circularList.next(new MultipleOfStrategy(2)));
+    }
+
+    @Test
+    void testEmptyEqualsStrategy() {
+        this.insertElements(1,3,7);
+        assertEquals(Optional.empty(), this.circularList.next(new EqualsStrategy(8)));
+    }
+
     private void insertElements(final Integer... elements) {
         for(int element : elements) {
             this.circularList.add(element);

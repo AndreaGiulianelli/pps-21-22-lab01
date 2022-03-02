@@ -108,6 +108,12 @@ public class CircularListTest {
         assertEquals(4, this.circularList.next(new EvenStrategy()).get());
     }
 
+    @Test
+    void testMultipleOfStrategy() {
+        this.insertElements(1,6,7);
+        assertEquals(6, this.circularList.next(new MultipleOfStrategy()).get());
+    }
+
     private void insertElements(final Integer... elements) {
         for(int element : elements) {
             this.circularList.add(element);

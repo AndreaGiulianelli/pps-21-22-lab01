@@ -79,6 +79,10 @@ public class CircularListTest {
         assertEquals(20, this.circularList.previous().get());
     }
 
+    /**
+     * Behaviour inspired to ListIterator where the
+     * alternation of next and previous remains on the same element
+     */
     @Test
     void testGeneralBehaviour() {
         this.insertElements(10, 20);
@@ -86,10 +90,6 @@ public class CircularListTest {
         assertEquals(10, this.circularList.previous().get());
     }
 
-    /**
-     * Behaviour inspired to ListIterator where the
-     * alternation of next and previous remains on the same element
-     */
     @Test
     void testResetCurrentIndex() {
         this.insertElements(10, 20, 30);
@@ -99,7 +99,7 @@ public class CircularListTest {
         assertEquals(10, this.circularList.next().get());
     }
 
-    private void insertElements(Integer... elements) {
+    private void insertElements(final Integer... elements) {
         for(int element : elements) {
             this.circularList.add(element);
         }

@@ -1,5 +1,6 @@
 import lab01.tdd.BasicCircularList;
 import lab01.tdd.CircularList;
+import lab01.tdd.EvenStrategy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -104,7 +105,7 @@ public class CircularListTest {
         this.insertElements(1,2,3,4,5);
         this.circularList.next();
         this.circularList.next();
-        assertEquals(4, this.circularList.next(new EvenStrategy()));
+        assertEquals(4, this.circularList.next(new EvenStrategy()).get());
     }
 
     private void insertElements(final Integer... elements) {

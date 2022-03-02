@@ -55,10 +55,13 @@ public class BasicCircularList implements CircularList{
 
     @Override
     public Optional<Integer> next(SelectStrategy strategy) {
-        return this.elements.stream()
-                .skip(this.currentIndex)
-                .filter(strategy::apply)
-                .findFirst();
+        final int startIndex = this.currentIndex;
+        Optional<Integer> element;
+        do {
+            element = this.next().filter(strategy::apply);
+        } while (this.currentIndex != startIndex && element.isEmpty());
+
+        return element;
     }
 
     private void increaseCurrentIndex() {

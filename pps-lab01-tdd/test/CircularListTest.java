@@ -136,6 +136,14 @@ public class CircularListTest {
         assertEquals(Optional.empty(), this.circularList.next(new EqualsStrategy(8)));
     }
 
+    @Test
+    void testCircularityNextWithStrategy() {
+        this.insertElements(1,2,3,5);
+        this.circularList.next();
+        this.circularList.next();
+        assertEquals(2, this.circularList.next(new EvenStrategy()).get());
+    }
+
     private void insertElements(final Integer... elements) {
         for(int element : elements) {
             this.circularList.add(element);
